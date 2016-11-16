@@ -37,8 +37,9 @@ subforum/include
 subforum/lib
 
 # Static files
-subforum/static/js
-subforum/static/stylesheets
+subforum/ui/static/js
+subforum/ui/static/stylesheets
+subforum/ui/static/.DS_Store
 
 # Optional npm cache directory
 .npm
