@@ -36,6 +36,10 @@ subforum/bin
 subforum/include
 subforum/lib
 
+# Static files
+subforum/static/js
+subforum/static/stylesheets
+
 # Optional npm cache directory
 .npm
 
