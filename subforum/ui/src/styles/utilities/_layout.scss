@@ -1,0 +1,197 @@
+@mixin layout-setup($namespace: "") {
+    /*****
+    * Centering utilities
+    *****/
+    .#{$namespace}u-centerBlock  {
+        margin: 0 auto !important;
+    }
+
+    .#{$namespace}u-centerTable  {
+        width: auto !important;
+        margin: 0 auto !important;
+    }
+
+    /*****
+    * Vertical alignment utilities
+    * Depends on an appropriate `display` value: only works with block level elements
+    ******/
+    .#{$namespace}u-valignTop {
+        vertical-align: top !important;
+    }
+
+    .#{$namespace}u-valignMiddle {
+        vertical-align: middle !important;
+    }
+
+    .#{$namespace}u-valignBaseline {
+        vertical-align: baseline !important;
+    }
+
+    .#{$namespace}u-valignBottom {
+        vertical-align: bottom !important;
+    }
+
+    /*****
+    * Vertical centering in the unknown
+    * Vertically center an element within its parent container without knowing the height of that container
+    ******/
+    .#{$namespace}u-verticalCenter  {
+        height: 100%;
+        
+        &:before {
+            content: '' !important;
+            display: inline-block !important;
+            height: 100% !important;
+            vertical-align: middle !important;
+        }
+    }
+        .#{$namespace}u-verticalCenter-element  {
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+
+    /*****
+    * Fixed alignment utilities
+    * Depends on an appropriate `position` value.
+    *****/
+    .#{$namespace}u-fixedTop {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+    .#{$namespace}u-fixedBottom {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    /*****
+    * Border-collapse
+    *****/
+
+    .#{$namespace}u-borderCollapse { border-collapse: collapse !important; }
+    .#{$namespace}u-borderSeparate { border-collapse: separate !important; }
+
+    /*****
+    * Overflow utilities
+    *****/
+
+    .#{$namespace}u-overflowHidden {
+        overflow: hidden !important;
+    }
+
+    .#{$namespace}u-overflowVisible {
+        overflow: visible !important;
+    }
+
+    .#{$namespace}u-overflowScroll {
+        overflow: scroll !important;
+    }
+
+    .#{$namespace}u-overflowAuto {
+        overflow: auto !important;
+    }
+}
+
+@include layout-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include layout-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include layout-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include layout-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include layout-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include layout-setup("b5-");
+}
+
+
+/*****
+* Floats
+*****/
+
+@mixin float-setup($namespace: "") {
+    .#{$namespace}u-floatRight   { float: right !important; }
+    .#{$namespace}u-floatLeft    { float: left  !important; }
+    .#{$namespace}u-floatNone    { float: none  !important; }
+
+    /*****
+    * Contain floats
+    *
+    * Make an element expand to contain floated children.
+    * Uses pseudo-elements (micro clearfix).
+    *
+    * 1. The space content is one way to avoid an Opera bug when the
+    *    `contenteditable` attribute is included anywhere else in the document.
+    *    Otherwise it causes space to appear at the top and bottom of the
+    *    element.
+    * 2. The use of `table` rather than `block` is only necessary if using
+    *    `:before` to contain the top-margins of child elements.
+    *****/
+
+    .#{$namespace}u-clearfix:before,
+    .#{$namespace}u-clearfix:after {
+        content: " "; //1
+        display: table; //2
+    }
+
+    .#{$namespace}u-clearfix:after {
+        clear: both;
+    }
+}
+
+@include float-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include float-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include float-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include float-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include float-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include float-setup("b5-");
+}
+
+//max
+
+@media only screen and (max-width:$breakpoint1) {
+    @include float-setup("b1Max-");
+}
+
+@media only screen and (max-width:$breakpoint2) {
+    @include float-setup("b2Max-");
+}
+
+@media only screen and (max-width:$breakpoint3) {
+    @include float-setup("b3Max-");
+}
+
+@media only screen and (max-width:$breakpoint4) {
+    @include float-setup("b4Max-");
+}
+
+@media only screen and (max-width:$breakpoint5) {
+    @include float-setup("b5Max-");
+}

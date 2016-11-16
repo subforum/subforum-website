@@ -1,0 +1,38 @@
+.Button {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: rem($milli-size);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+    padding: 0 rem(16.7);
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    background-color: $btnColor;
+    color: $btnTxtColor;
+    border-radius: rem($brand-round);
+    transition: all .2s cubic-bezier(1, 0, .5, 1);
+    line-height: rem(30);
+    text-decoration: none;
+
+    &:hover {
+        background-color: $btnColorHover;
+        text-decoration: none;
+    }
+
+    &.is-selected,
+    &:active {
+        background-color: $btnColorActive;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &.is-disabled,
+    &:disabled,
+    &[disabled] {
+        cursor: default;
+        opacity: .5;
+    }
+}

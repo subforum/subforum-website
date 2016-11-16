@@ -1,0 +1,79 @@
+body {
+    background-color: #000;
+}
+
+.Shell {
+    max-width: rem(976);
+    margin: rem($base-spacing-unit) auto;
+    background-color: #fff;
+}
+
+.Shell-heading {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.Shell-logo {
+    height: 75px;
+    margin: rem($half-spacing-unit) 0  ;
+}
+
+.Shell-navigation {
+    background-color: $background-dark;
+    padding: rem($half-spacing-unit);
+    line-height: 1;
+}
+    .Shell-navigation-item {
+        display: inline-block;
+        padding: 0 rem($half-spacing-unit);
+        font-size: rem($centi-size);
+        border-right: 1px solid #6B828C;
+        color: #6B828C;
+
+        &:last-child {
+            border: 0;
+            padding-right: 0;
+        }
+    }
+
+    .Shell-navigation-item--label {
+        padding-right: 0;
+        border-right: 0;
+        color: $white-font-color;
+
+        &:after {
+            content: "»";
+            margin-left: rem($half-spacing-unit);
+        }
+    }
+
+.Shell-navigation--footer {
+    .Shell-navigation-item {
+        color: $link-color-alt;
+        font-size: rem($milli-size);
+    }
+
+    .Shell-navigation-item--label {
+        padding: 0 rem($half-spacing-unit);
+        border-right: 1px solid #6B828C;
+        color: $white-font-color;
+
+        &:after {
+            content: none;
+        }
+    }
+}
+
+.Shell-main {
+    position: relative;
+    padding: 0 0 rem($base-spacing-unit);
+}
+
+.Shell-footer {
+    padding: rem($half-spacing-unit);
+    background-color: $background-dark;
+    font-size: rem($micro-size);
+    color: rgba(255, 255, 255, .87);
+    text-align: center;
+}

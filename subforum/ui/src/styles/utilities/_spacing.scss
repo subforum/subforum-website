@@ -1,0 +1,150 @@
+@mixin spacing-setup($namespace: "") {
+	// Add/remove margins
+
+	.#{$namespace}u-margin        { margin:        $base-spacing-unit + px !important; margin: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-marginTop     { margin-top:    $base-spacing-unit + px !important; margin-top: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-marginRight   { margin-right:  $base-spacing-unit + px !important; margin-right: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-marginBottom  { margin-bottom: $base-spacing-unit + px !important; margin-bottom: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-marginLeft    { margin-left:   $base-spacing-unit + px !important; margin-left: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-marginEnds    { margin-top:    $base-spacing-unit + px !important; margin-top: rem($base-spacing-unit) !important; margin-bottom: $base-spacing-unit + px !important; margin-bottom: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-marginSides   { margin-right:  $base-spacing-unit + px !important; margin-right:  rem($base-spacing-unit) !important; margin-left:  $base-spacing-unit + px !important; margin-left: rem($base-spacing-unit) !important; }
+
+	.#{$namespace}u-marginHalf          { margin:        $half-spacing-unit + px !important; margin: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-marginTopHalf       { margin-top:    $half-spacing-unit + px !important; margin-top: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-marginRightHalf     { margin-right:  $half-spacing-unit + px !important; margin-right: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-marginBottomHalf    { margin-bottom: $half-spacing-unit + px !important; margin-bottom: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-marginLeftHalf      { margin-left:   $half-spacing-unit + px !important; margin-left: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-marginEndsHalf      { margin-top:    $half-spacing-unit + px !important; margin-top: rem($half-spacing-unit) !important; margin-bottom: $half-spacing-unit + px !important; margin-bottom: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-marginSidesHalf     { margin-right: $half-spacing-unit + px !important; margin-right: rem($half-spacing-unit) !important; margin-left: $half-spacing-unit + px !important; margin-left: rem($half-spacing-unit) !important; }
+
+	.#{$namespace}u-marginOneAndHalf          { margin:        $one-and-half-spacing-unit + px !important; margin: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-marginTopOneAndHalf       { margin-top:    $one-and-half-spacing-unit + px !important; margin-top: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-marginRightOneAndHalf     { margin-right:  $one-and-half-spacing-unit + px !important; margin-right: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-marginBottomOneAndHalf    { margin-bottom: $one-and-half-spacing-unit + px !important; margin-bottom: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-marginLeftOneAndHalf      { margin-left:   $one-and-half-spacing-unit + px !important; margin-left: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-marginEndsOneAndHalf      { margin-top:    $one-and-half-spacing-unit + px !important; margin-top: rem($one-and-half-spacing-unit) !important; margin-bottom: $one-and-half-spacing-unit + px !important; margin-bottom: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-marginSidesOneAndHalf     { margin-right: $one-and-half-spacing-unit + px !important; margin-right: rem($one-and-half-spacing-unit) !important; margin-left: $one-and-half-spacing-unit + px !important; margin-left: rem($one-and-half-spacing-unit) !important; }
+
+	.#{$namespace}u-marginDouble        { margin:        $double-spacing-unit + px !important; margin: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-marginTopDouble     { margin-top:    $double-spacing-unit + px !important; margin-top: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-marginRightDouble   { margin-right:  $double-spacing-unit + px !important; margin-right: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-marginBottomDouble  { margin-bottom: $double-spacing-unit + px !important; margin-bottom: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-marginLeftDouble    { margin-left:   $double-spacing-unit + px !important; margin-left: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-marginEndsDouble    { margin-top:    $double-spacing-unit + px !important; margin-top: rem($double-spacing-unit) !important; margin-bottom: $double-spacing-unit + px !important; margin-bottom: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-marginSidesDouble   { margin-right: $double-spacing-unit + px !important; margin-right: rem($double-spacing-unit) !important; margin-left: $double-spacing-unit + px !important; margin-left: rem($double-spacing-unit) !important; }
+
+	.#{$namespace}u-marginFlush         { margin:        0 !important; }
+	.#{$namespace}u-marginTopFlush      { margin-top:    0 !important; }
+	.#{$namespace}u-marginRightFlush    { margin-right:  0 !important; }
+	.#{$namespace}u-marginBottomFlush   { margin-bottom: 0 !important; }
+	.#{$namespace}u-marginLeftFlush     { margin-left:   0 !important; }
+	.#{$namespace}u-marginEndsFlush     { margin-top:    0 !important; margin-bottom: 0 !important; }
+	.#{$namespace}u-marginSidesFlush    { margin-right:  0 !important; margin-left:   0 !important; }
+
+	.#{$namespace}u-marginSidesAuto   { margin-right: auto !important; margin-left: auto !important; }
+
+
+
+	// Add/remove paddings
+
+	.#{$namespace}u-padding        { padding:        $base-spacing-unit + px !important; padding: em($base-spacing-unit) !important; }
+	.#{$namespace}u-paddingTop     { padding-top:    $base-spacing-unit + px !important; padding-top: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-paddingRight   { padding-right:  $base-spacing-unit + px !important; padding-right: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-paddingBottom  { padding-bottom: $base-spacing-unit + px !important; padding-bottom: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-paddingLeft    { padding-left:   $base-spacing-unit + px !important; padding-left: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-paddingEnds    { padding-top:    $base-spacing-unit + px !important; padding-top: rem($base-spacing-unit) !important; padding-bottom:$base-spacing-unit + px !important; padding-bottom: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-paddingSides   { padding-right: $base-spacing-unit + px !important; padding-right: rem($base-spacing-unit) !important; padding-left:  $base-spacing-unit + px !important; padding-left: rem($base-spacing-unit) !important; }
+
+	.#{$namespace}u-paddingHalf          { padding:        $half-spacing-unit + px !important; padding: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-paddingTopHalf       { padding-top:    $half-spacing-unit + px !important; padding-top: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-paddingRightHalf     { padding-right:  $half-spacing-unit + px !important; padding-right: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-paddingBottomHalf    { padding-bottom: $half-spacing-unit + px !important; padding-bottom: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-paddingLeftHalf      { padding-left:   $half-spacing-unit + px !important; padding-left: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-paddingEndsHalf      { padding-top:    $half-spacing-unit + px !important; padding-top: rem($half-spacing-unit) !important; padding-bottom:$half-spacing-unit + px !important; padding-bottom: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-paddingSidesHalf     { padding-right: $half-spacing-unit + px !important; padding-right: rem($half-spacing-unit) !important; padding-left:  $half-spacing-unit + px !important; padding-left: rem($half-spacing-unit) !important; }
+
+	.#{$namespace}u-paddingOneAndHalf          { padding:        $one-and-half-spacing-unit + px !important; padding: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-paddingTopOneAndHalf       { padding-top:    $one-and-half-spacing-unit + px !important; padding-top: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-paddingRightOneAndHalf     { padding-right:  $one-and-half-spacing-unit + px !important; padding-right: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-paddingBottomOneAndHalf    { padding-bottom: $one-and-half-spacing-unit + px !important; padding-bottom: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-paddingLeftOneAndHalf      { padding-left:   $one-and-half-spacing-unit + px !important; padding-left: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-paddingEndsOneAndHalf      { padding-top:    $one-and-half-spacing-unit + px !important; padding-top: rem($one-and-half-spacing-unit) !important; padding-bottom: $one-and-half-spacing-unit + px !important; padding-bottom: rem($one-and-half-spacing-unit) !important; }
+	.#{$namespace}u-paddingSidesOneAndHalf     { padding-right: $one-and-half-spacing-unit + px !important; padding-right: rem($one-and-half-spacing-unit) !important; padding-left: $one-and-half-spacing-unit + px !important; padding-left: rem($one-and-half-spacing-unit) !important; }
+
+	.#{$namespace}u-paddingDouble        { padding:        $double-spacing-unit + px !important; padding: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-paddingTopDouble     { padding-top:    $double-spacing-unit + px !important; padding-top: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-paddingRightDouble   { padding-right:  $double-spacing-unit + px !important; padding-right: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-paddingBottomDouble  { padding-bottom: $double-spacing-unit + px !important; padding-bottom: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-paddingLeftDouble    { padding-left:   $double-spacing-unit + px !important; padding-left: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-paddingEndsDouble    { padding-top:    $double-spacing-unit + px !important; padding-top: rem($double-spacing-unit) !important; padding-bottom: $double-spacing-unit + px !important; padding-bottom: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-paddingSidesDouble   { padding-right: $double-spacing-unit + px !important; padding-right: rem($double-spacing-unit) !important; padding-left: $double-spacing-unit + px !important; padding-left: rem($double-spacing-unit) !important; }
+
+	.#{$namespace}u-paddingFlush        { padding:        0 !important; }
+	.#{$namespace}u-paddingTopFlush     { padding-top:    0 !important; }
+	.#{$namespace}u-paddingRightFlush   { padding-right:  0 !important; }
+	.#{$namespace}u-paddingBottomFlush  { padding-bottom: 0 !important; }
+	.#{$namespace}u-paddingLeftFlush    { padding-left:   0 !important; }
+	.#{$namespace}u-paddingEndsFlush    { padding-top:    0 !important; padding-bottom: 0 !important; }
+	.#{$namespace}u-paddingSidesFlush   { padding-right:  0 !important; padding-left:   0 !important; }
+
+
+	// Add/remove border-spacing
+
+	.#{$namespace}u-borderSpacing            { border-spacing: $base-spacing-unit + px !important; border-spacing: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-borderSpacingEnds        { border-spacing: 0 $base-spacing-unit + px !important; border-spacing: rem($base-spacing-unit) !important; }
+	.#{$namespace}u-borderSpacingSides       { border-spacing: $base-spacing-unit + px 0 !important; border-spacing: rem($base-spacing-unit) 0 !important; }
+
+	.#{$namespace}u-borderSpacingHalf        { border-spacing: $half-spacing-unit + px !important; border-spacing: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-borderSpacingEndsHalf    { border-spacing: 0 $half-spacing-unit + px !important; border-spacing: rem($half-spacing-unit) !important; }
+	.#{$namespace}u-borderSpacingSidesHalf   { border-spacing: $half-spacing-unit + px 0 !important; border-spacing: rem($half-spacing-unit) 0 !important; }
+
+	.#{$namespace}u-borderSpacingDouble      { border-spacing: $double-spacing-unit + px !important; border-spacing: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-borderSpacingEndsDouble  { border-spacing: 0 $double-spacing-unit + px !important; border-spacing: rem($double-spacing-unit) !important; }
+	.#{$namespace}u-borderSpacingSidesDouble { border-spacing: $double-spacing-unit + px 0 !important; border-spacing: rem($double-spacing-unit) 0 !important; }
+
+	.#{$namespace}u-borderSpacingFlush       { border-spacing:        0 !important; }
+}
+
+@include spacing-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+@include spacing-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+@include spacing-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+@include spacing-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+@include spacing-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+@include spacing-setup("b5-");
+}
+
+// max
+
+@media only screen and (max-width:$breakpoint1) {
+@include spacing-setup("b1Max-");
+}
+
+@media only screen and (max-width:$breakpoint2) {
+@include spacing-setup("b2Max-");
+}
+
+@media only screen and (max-width:$breakpoint3) {
+@include spacing-setup("b3Max-");
+}
+
+@media only screen and (max-width:$breakpoint4) {
+@include spacing-setup("b4Max-");
+}
+
+@media only screen and (max-width:$breakpoint5) {
+@include spacing-setup("b5Max-");
+}

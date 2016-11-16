@@ -1,0 +1,48 @@
+@mixin divider-setup($namespace: "") {
+    .#{$namespace}u-divider {
+		width: 100%;
+	    height: 1px;
+		color: #fff;
+		background-color: none;
+		border: 0;
+		border-top: 1px solid $brdrColorDark;
+		margin: rem($base-spacing-unit) 0;
+	}
+
+	.#{$namespace}u-divider--light {
+		border-top: 1px solid $brdrColor;
+	}
+
+	.#{$namespace}u-divider--vertical {
+		width: 1px;
+		margin: 0 rem(16);
+		border: 0;
+	    border-right: 1px solid $brdrColorDark;
+	}
+
+	.#{$namespace}u-divider--dotted {
+		border-style: dotted;
+	}
+}
+
+@include divider-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include divider-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include divider-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include divider-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include divider-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include divider-setup("b5-");
+}

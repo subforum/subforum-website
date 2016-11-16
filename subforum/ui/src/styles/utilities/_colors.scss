@@ -1,0 +1,51 @@
+@mixin colors-setup($namespace: "") {
+    .#{$namespace}u-colorWhite {
+        color: rgba(255, 255, 255, .87) !important;
+    }
+    .#{$namespace}u-colorWhiteAll {
+        color: rgba(255, 255, 255, .87) !important;
+        a {
+            color: rgba( 255, 255, 255, .87) !important;
+        }
+    }
+    .#{$namespace}u-colorWhiteFull {
+        color: rgba(255, 255, 255, 1) !important;
+    }
+    .#{$namespace}u-colorBlack {
+        color: #000000 !important;
+    }
+    .#{$namespace}u-colorBase {
+        color: $base-font-color !important;
+    }
+    .#{$namespace}u-colorMedium {
+        color: $medium-font-color !important;
+    }
+    .#{$namespace}u-colorLight {
+        color: $light-font-color !important;
+    }
+    .#{$namespace}u-colorLink {
+        color: $link-color !important;
+    }
+}
+
+@include colors-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include colors-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include colors-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include colors-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include colors-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include colors-setup("b5-");
+}

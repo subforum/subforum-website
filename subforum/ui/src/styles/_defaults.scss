@@ -1,0 +1,166 @@
+/*------------------------------------*\
+    $BASE
+\*------------------------------------*/
+/**
+ * Base stuff
+ */
+$base-font-size:    16!default;
+$base-line-height:  24!default;
+
+/**
+ * Base font-families
+ */
+$base-font-family:  'Lato', sans-serif!default;
+
+/*------------------------------------*\
+    $RESPONSIVE
+\*------------------------------------*/
+
+/**
+ * Breakpoints to cover from phone to large monitor
+ */
+$breakpoint1:   481px!default;
+$breakpoint2:   560px!default;
+$breakpoint3:   769px!default;
+$breakpoint4:   1000px!default;
+$breakpoint5:   1450px!default;
+
+
+/*------------------------------------*\
+    $FONT-SIZES
+\*------------------------------------*/
+/**
+ * Font-sizes (in pixels). Refer to relevant sections for their implementations.
+ */
+
+$giga-size:         58!default;
+$mega-size:         36!default;
+$kilo-size:         24!default;
+$h1-size:           21!default; // .alpha
+$h2-size:           18!default; // .beta
+$h3-size:           16!default; // .gamma
+$centi-size:        14!default;
+$milli-size:        12!default;
+$micro-size:        11!default;
+
+
+/*------------------------------------*\
+    $FONT-COLORS
+\*------------------------------------*/
+/**
+ * Font-colors (in hex). Refer to relevant sections for their implementations.
+ */
+$base-font-color:     #404041!default; // Default font color
+$medium-font-color:   #6d6e70!default; // 
+$light-font-color:    #d1d2d4!default; // 
+$white-font-color:    rgba(255, 255, 255, .87)!default; // 
+$link-color:          #A1C9FF!default; //
+// $visited-link-color:  #232323!default; //
+$link-color-alt:      #D2870B!default;
+
+$brand-primary:       #f0552d!default;
+$brand-secondary:     #f5873c!default;
+
+
+/*------------------------------------*\
+    $BACKRGOUND-COLORS
+\*------------------------------------*/
+$background-dark: #343434;
+
+/*------------------------------------*\
+    $BUTTON COLLORS AND ATTRIBUTES
+\*------------------------------------*/
+/**
+ * Button-colors (in hex). Refer to relevant sections for their implementations.
+ */
+$btnColor:                  #4D95FF!default;
+$btnColorHover:             lighten($btnColor, 10%)!default;
+$btnColorActive:            darken($btnColor, 10%)!default;
+$btnTxtColor:               $white-font-color!default;
+$btnTxtColorActive:         $white-font-color!default;
+
+// $btnColorDisabled:          #ebedee!default;
+// $btnTxtColorDisabled:       $color6!default;
+
+/*------------------------------------*\
+    $BORDER COLORS
+\*------------------------------------*/
+/**
+ * Button-colors (in hex). Refer to relevant sections for their implementations.
+ */
+$brdrColor: #dadada!default;
+$brdrColorDark: #b0b6bb!default;
+
+
+/*------------------------------------*\
+    $BOX SHADOWS
+\*------------------------------------*/
+/**
+ * Button-colors (in hex). Refer to relevant sections for their implementations.
+ */
+$boxShadow: 0 1px 0px 0 rgba(0,0,0,0.1);
+
+
+/*------------------------------------*\
+    $QUOTES
+\*------------------------------------*/
+/**
+ * English quote marks?
+ */
+$english-quotes:    true!default;
+
+/**
+ * If you want English quotes then please do not edit these; they’re only here
+ * because Sass needs them.
+ */
+$open-quote:    null;
+$close-quote:   null;
+
+@if $english-quotes == true {
+    $open-quote:    \201C;
+    $close-quote:   \201D;
+}
+
+/**
+ * If you need non-English quotes, please alter the following values accordingly:
+ */
+@if $english-quotes != true {
+    $open-quote:    \00AB;
+    $close-quote:   \00BB;
+}
+
+/*------------------------------------*\
+    $BRAND
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+$brand-face:        $base-font-family!default;
+
+/**
+ * How big would you like round corners to be by default?
+ */
+$brand-round:        3!default;
+
+/**
+ * What do drop shadows look like?
+ */
+$brand-shadow:        0 0 .25rem #333 !default;
+
+ /**
+ * The default transition (buttons, links, etc.)
+ */
+$brand-transition:        all .2s cubic-bezier(1, 0, .5, 1)!default;
+
+
+/*------------------------------------*\
+    $FRAMEWORK
+\*------------------------------------*/
+/**
+ * Assign our `$base-line-height` to a new spacing var for more transparency.
+ */
+$base-spacing-unit: $base-line-height!default;
+$half-spacing-unit: $base-spacing-unit / 2!default;
+$one-and-half-spacing-unit: $base-line-height * 1.5!default;
+$double-spacing-unit: $base-spacing-unit * 2!default;
+$line-height-ratio: $base-line-height / $base-font-size;
