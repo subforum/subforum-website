@@ -10,7 +10,7 @@ class Article extends React.Component {
 
         return (
             <tr>
-                <td><a href={link}>{article.name}</a></td>
+                <td style={{minWidth:"18.75rem"}}><a href={link}>{article.name}</a></td>
                 <td>{article.authors}</td>
                 <td>{article.edit_date}</td>
             </tr>

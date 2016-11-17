@@ -51,7 +51,7 @@ class Articles(models.Model):
     name = models.CharField(max_length=150)
     authors = models.CharField(max_length=200)
     edit_date = models.DateTimeField('date edited')
-    content = models.CharField(max_length=1000, default='')
+    content = models.TextField(max_length=50000, default='')
     project = models.ForeignKey(Projects, on_delete=models.CASCADE)
 
     class Meta:

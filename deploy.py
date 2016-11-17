@@ -4,9 +4,9 @@ from deployer.host import SSHHost
 supervisor_config = \
 """
 [program:djangoproject]
-command = /home/username/.virtualenvs/project-env/bin/gunicorn_start  ; Command to start app
+command = /home/derose/.virtualenvs/subforum/bin/gunicorn_start  ; Command to start app
 user = username                                                       ; User to run as
-stdout_logfile = /home/username/logs/gunicorn_supervisor.log          ; Where to write log messages
+stdout_logfile = /home/derose/logs/gunicorn_supervisor.log          ; Where to write log messages
 redirect_stderr = true                                                ; Save stderr in the same log
 """
 
@@ -68,18 +68,18 @@ class Git(Node):
 
     def checkout(self, commit):
         """ Checkout specific commit (after cloning)."""
-        with self.host.cd('~/projects/subforum-django', expand=True):
+        with self.host.cd('/var/www/content.subforum.org/subforum-website/', expand=True):
             self.host.run("git checkout '%s'" % esc1(commit))
 
 class DjangoDeployment(Node):
     class virtual_env(VirtualEnv):
-        location = '~/.virtualenvs/project-env/'
+        location = '~/.virtualenvs/subforum/'
         packages = [ 'gunicorn', 'supervisor' ]
-        requirements_files = ['~/git/django-project/requirements.txt' ]
+        requirements_files = ['/var/www/content.subforum.org/subforum-website/requirements.txt' ]
 
     class git(Git):
-        project_directory = '~/git/django-project'
-        repository = 'git@github.com:example/example.git'
+        project_directory = '/var/www/content.subforum.org/subforum-website'
+        repository = 'https://github.com/subforum/subforum-website.git'
 
     def setup(self):
         # Clone repository
@@ -99,7 +99,7 @@ class DjangoDeployment(Node):
         # Activate the virtualenv.
         with self.host.prefix(self.activate_cmd):
             # Cd to the place where we have our 'manage.py' file.
-            with self.host.cd('~/git/django-project/'):
+            with self.host.cd('/var/www/content.subforum.org/subforum-website/'):
                 self.host.run('./manage.py %s' % command)
 
     def django_shell(self):

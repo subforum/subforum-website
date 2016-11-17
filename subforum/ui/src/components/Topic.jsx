@@ -10,7 +10,7 @@ class Project extends React.Component {
 
         return (
             <tr>
-                <td><a href={link}>{project.name}</a></td>
+                <td style={{minWidth:"18.75rem"}}><a href={link}>{project.name}</a></td>
                 <td>{project.contributors}</td>
                 <td className="u-textRight">{project.edit_date}</td>
             </tr>
@@ -26,7 +26,7 @@ class Article extends React.Component {
 
         return (
             <tr>
-                <td><a href={articleLink}>{article.name}</a></td>
+                <td style={{minWidth:"18.75rem"}}><a href={articleLink}>{article.name}</a></td>
                 <td><a href={projectLink}>{article.project_name}</a></td>
                 <td>{article.authors}</td>
                 <td className="u-textRight">{article.edit_date}</td>

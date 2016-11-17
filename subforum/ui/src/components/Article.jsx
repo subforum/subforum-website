@@ -12,7 +12,8 @@ class Article extends React.Component {
         let article = this.props.subforum_data;
         let options = {
             xhtmlOut:     true,
-            breaks:       true,
+            html:         true,
+            breaks:       false,
             linkify:      true
         };
 
