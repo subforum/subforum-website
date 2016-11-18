@@ -1,0 +1,289 @@
+@mixin textSize-setup($namespace: "") {
+    .#{$namespace}u-bannerText {
+        font-size: rem($kilo-size) !important;
+        font-weight: 400 !important;
+    }
+
+    .#{$namespace}u-headlineText {
+        font-size: rem($h1-size) !important;
+    }
+
+    .#{$namespace}u-titleText {
+        font-size: rem($h2-size) !important;
+        font-weight: 500 !important;
+    }
+
+    .#{$namespace}u-subheadText {
+        font-size: rem($h3-size) !important;
+        font-weight: 500 !important;
+    }
+
+    .#{$namespace}u-bodyText {
+        font-size: rem($centi-size) !important;
+    }
+
+    .#{$namespace}u-captionText {
+        font-size: rem($micro-size) !important;
+    }
+}
+
+@include textSize-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include textSize-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include textSize-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include textSize-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include textSize-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include textSize-setup("b5-");
+}
+
+
+@media only screen and (max-width:$breakpoint1) {
+    @include textSize-setup("b1Max-");
+}
+
+@media only screen and (max-width:$breakpoint2) {
+    @include textSize-setup("b2Max-");
+}
+
+@media only screen and (max-width:$breakpoint3) {
+    @include textSize-setup("b3Max-");
+}
+
+@media only screen and (max-width:$breakpoint4) {
+    @include textSize-setup("b4Max-");
+}
+
+@media only screen and (max-width:$breakpoint5) {
+    @include textSize-setup("b5Max-");
+}
+
+// Text alignment
+@mixin textAlign-setup($namespace: "") {
+    .#{$namespace}u-textCenter {
+        text-align: center !important;
+    }
+
+    .#{$namespace}u-textLeft {
+        text-align: left !important;
+    }
+
+    .#{$namespace}u-textRight {
+        text-align: right !important;
+    }
+
+    .#{$namespace}u-textJustify {
+        text-align: justify !important;
+    }
+}
+
+@include textAlign-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include textAlign-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include textAlign-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include textAlign-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include textAlign-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include textAlign-setup("b5-");
+}
+
+
+// Font Weights
+@mixin fontWeight-setup($namespace: "") {
+    .#{$namespace}u-fontWeightLight {
+        font-weight: 300 !important;
+    }
+    .#{$namespace}u-fontWeightNormal {
+        font-weight: normal !important;
+    }
+    .#{$namespace}u-fontWeightMedium {
+        font-weight: 500 !important;
+    }
+    .#{$namespace}u-fontWeightBold {
+        font-weight: 600 !important;
+    }
+}
+
+@include fontWeight-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include fontWeight-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include fontWeight-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include fontWeight-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include fontWeight-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include fontWeight-setup("b5-");
+}
+
+
+
+// Font decoration
+@mixin text-setup($namespace: "") {
+    // Text Decoration
+    .#{$namespace}u-textUnderline {
+        text-decoration: underline !important;
+    }
+
+    // Capitalization
+    .#{$namespace}u-caps {
+        text-transform: uppercase !important;
+    }
+
+    .#{$namespace}u-smallCaps {
+        font-variant: small-caps !important;
+    }
+
+    .#{$namespace}u-camelCase {
+        text-transform: capitalize !important;
+    }
+
+    .#{$namespace}u-textDecorationNone {
+        text-decoration: none !important;
+        text-transform: none !important;
+        font-variant: none !important;
+        text-shadow: none !important;
+
+        &:hover {
+            text-decoration: none !important;
+            text-transform: none !important;
+            font-variant: none !important;
+            text-shadow: none !important;
+        }
+    }
+
+    .#{$namespace}u-textShadow {
+        text-shadow: 0 1px 0 rgba(0, 0, 0, .15);
+    }
+
+    .#{$namespace}u-textShadow--bold {
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, .2);
+    }
+
+    .#{$namespace}u-muted {
+        opacity: .3 !important;
+        filter: alpha(opacity = 30) !important;
+    }
+
+    // Line Height
+    .#{$namespace}u-lineHeight1 {
+        line-height: 1 !important;
+    }
+
+    // Line Height
+    .#{$namespace}u-lineHeightBase {
+        line-height: $line-height-ratio !important;
+    }
+
+    // Word and Line Breaking
+    .#{$namespace}u-wordBreak {
+        word-break: break-word !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .#{$namespace}u-overflowWrap {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .#{$namespace}u-ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    // Word and Line Breaking
+    .#{$namespace}u-textBreak {
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+    }
+
+    .#{$namespace}u-textNoWrap {
+        white-space: nowrap !important;
+    }
+
+    // Cursor States
+    .#{$namespace}u-cursorHand {
+        cursor: pointer !important;
+    }
+
+    .#{$namespace}u-linkComplex {
+        text-decoration: none !important;
+        
+        &:hover {
+            span {
+                text-decoration: underline !important;
+            }
+        }
+    }
+
+    // Letter Spacing
+    .#{$namespace}u-headlineLetterSpacing {
+        letter-spacing: rem(1.2) !important;
+    }
+
+    .#{$namespace}u-letterSpacing {
+        letter-spacing: rem(3) !important;
+    }
+
+    .#{$namespace}u-letterSpacingHalf {
+        letter-spacing: rem(1.5) !important;
+    }
+}
+
+@include text-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include text-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include text-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include text-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include text-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include text-setup("b5-");
+}

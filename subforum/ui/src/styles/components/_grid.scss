@@ -1,0 +1,332 @@
+.Grid {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;    
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+    .Grid-item {
+        -webkit-flex: 1 1 0;
+        -ms-flex: 1;
+        flex: 1 1 0;
+    }
+
+@mixin grid-setup($namespace: "") {
+    .#{$namespace}Grid--reverse {
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .#{$namespace}Grid--row {
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .#{$namespace}Grid--top {
+        -webkit-align-items: flex-start;
+        -ms-align-items: flex-start;
+        align-items: flex-start;
+    }
+
+    .#{$namespace}Grid--bottom {
+        -webkit-align-items: flex-end;
+        -ms-align-items: flex-end;
+        align-items: flex-end;
+    }
+
+    .#{$namespace}Grid--center {
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        align-items: center;
+    }
+
+    .#{$namespace}Grid--justifyCenter {
+        -webkit-justify-content: center;
+        -ms-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .#{$namespace}Grid-item--top {
+        -webkit-align-self: flex-start;
+        align-self: flex-start;
+    }
+
+    .#{$namespace}Grid-item--bottom {
+        -webkit-align-self: flex-end;
+        -ms-align-self: flex-end;
+        align-self: flex-end;
+    }
+
+    .#{$namespace}Grid-item--center {
+        -webkit-align-self: center;
+        -ms-align-self: center;
+        align-self: center;
+    }
+
+    .#{$namespace}Grid--fit {
+        > .Grid-item {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+    }
+
+    .#{$namespace}Grid--full {
+        > .Grid-item {
+            -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .#{$namespace}Grid--1of2 {
+        > .Grid-item {
+            -webkit-flex: 0 0 50%;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    .#{$namespace}Grid--1of3 {
+        > .Grid-item {
+            -webkit-flex: 0 0 33.3333%;
+            -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+        }
+    }
+
+    .#{$namespace}Grid--1of4 {
+        > .Grid-item {
+            -webkit-flex: 0 0 25%;
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+
+    .#{$namespace}Grid--1of5 {
+        > .Grid-item {
+            -webkit-flex: 0 0 20%;
+            -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+
+    .#{$namespace}Grid-item--autoSize {
+        -webkit-flex: none;
+        -ms-flex: none;
+        flex: none;
+    }
+
+    .#{$namespace}Grid-item--full {
+        -webkit-flex: 0 0 100% !important;
+        -ms-flex: 0 0 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .#{$namespace}Grid-item--1of5 {
+        -webkit-flex: 0 0 20% !important;
+        -ms-flex: 0 0 20% !important;
+        flex: 0 0 20% !important;
+        max-width: 20% !important;
+    }
+
+    .#{$namespace}Grid-item--1of4 {
+        -webkit-flex: 0 0 25% !important;
+        -ms-flex: 0 0 25% !important;
+        flex: 0 0 25% !important;
+        max-width: 25% !important;
+    }
+
+    .#{$namespace}Grid-item--1of3 {
+        -webkit-flex: 0 0 33.33% !important;
+        -ms-flex: 0 0 33.33% !important;
+        flex: 0 0 33.33% !important;
+        max-width: 33.33% !important;
+    }
+
+    .#{$namespace}Grid-item--1of2 {
+        -webkit-flex: 0 0 50% !important;
+        -ms-flex: 0 0 50% !important;
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .#{$namespace}Grid-item--2of3 {
+        -webkit-flex: 0 0 66.67% !important;
+        -ms-flex: 0 0 66.67% !important;
+        flex: 0 0 66.67% !important;
+        max-width: 66.67% !important;
+    }
+
+    .#{$namespace}Grid-item--autoSize {
+        -webkit-flex: none !important;
+        -ms-flex: none !important;
+        flex: none !important;
+    }
+
+    .#{$namespace}Grid-item--flexCell {
+        -webkit-flex: 1 1 0;
+        -ms-flex: 1 1 0;
+        flex: 1 1 0;
+    }
+
+    .#{$namespace}Grid-item--order1 {
+        -webkit-order: 1;
+        -ms-flex-order: 1;
+        order: 1;
+    }
+
+    .#{$namespace}Grid-item--order2 {
+        -webkit-order: 2;
+        -ms-flex-order: 2;
+        order: 2;
+    }
+
+    .#{$namespace}Grid-item--order3 {
+        -webkit-order: 3;
+        -ms-flex-order: 3;
+        order: 3;
+    }
+
+    .#{$namespace}Grid-item--order4 {
+        -webkit-order: 4;
+        -ms-flex-order: 4;
+        order: 4;
+    }
+
+    .#{$namespace}Grid-item--order5 {
+        -webkit-order: 5;
+        -ms-flex-order: 5;
+        order: 5;
+    }
+
+    .#{$namespace}Grid--gutter {
+        margin: 0 0 0 rem(-$base-spacing-unit);
+
+        > .Grid-item {
+            padding: 0 0 rem($base-spacing-unit) rem($base-spacing-unit);
+        }
+    }
+
+    .#{$namespace}Grid--gutterHalf {
+        margin: 0 0 0 rem(-$base-spacing-unit/2);
+
+        > .Grid-item {
+            padding: 0 0 rem($base-spacing-unit/2) rem($base-spacing-unit/2);
+        }
+    }
+
+    .#{$namespace}Grid--gutterDouble {
+        margin: 0 0 0 rem(-$double-spacing-unit);
+
+        > .Grid-item {
+            padding: 0 0 rem($double-spacing-unit) rem($double-spacing-unit);
+        }
+    }
+
+    .#{$namespace}Grid--gutterHorizontal {
+        margin: 0 0 0 rem(-$base-spacing-unit);
+
+        > .Grid-item {
+            padding: 0 0 0 rem($base-spacing-unit);
+        }
+    }
+
+    .#{$namespace}Grid--gutterHorizontalHalf {
+        margin: 0 0 0 rem(-$base-spacing-unit/2);
+
+        > .Grid-item {
+            padding: 0 0 0 rem($base-spacing-unit/2);
+        }
+    }
+
+    .#{$namespace}Grid--gutterHorizontalDouble {
+        margin: 0 0 0 rem(-$double-spacing-unit);
+
+        > .Grid-item {
+            padding: 0 0 0 rem($double-spacing-unit);
+        }
+    }
+
+    .#{$namespace}Grid--gutterVertical {
+        margin: 0 0 rem(-$base-spacing-unit) 0;
+
+        > .Grid-item {
+            padding: 0 0 rem($base-spacing-unit) 0;
+        }
+    }
+
+    .#{$namespace}Grid--gutterVerticalHalf {
+        margin: 0 0 rem(-$base-spacing-unit/2) 0;
+
+        > .Grid-item {
+            padding: 0 0 rem($base-spacing-unit/2) 0;
+        }
+    }
+
+    .#{$namespace}Grid--gutterVerticalDouble {
+        margin: 0 0 rem(-$double-spacing-unit) 0;
+
+        > .Grid-item {
+            padding: 0 0 rem($double-spacing-unit) 0;
+        }
+    }
+}
+
+@include grid-setup();
+
+@media only screen and (min-width:$breakpoint1) {
+    @include grid-setup("b1-");
+}
+
+@media only screen and (min-width:$breakpoint2) {
+    @include grid-setup("b2-");
+}
+
+@media only screen and (min-width:$breakpoint3) {
+    @include grid-setup("b3-");
+}
+
+@media only screen and (min-width:$breakpoint4) {
+    @include grid-setup("b4-");
+}
+
+@media only screen and (min-width:$breakpoint5) {
+    @include grid-setup("b5-");
+}
+
+// TODO: These add a bunch of weight to the final css file which is why I didn't just give everything all possible breakpoint classes. Only add these if you need them.
+// max
+
+@media only screen and (max-width:$breakpoint1) {
+    @include grid-setup("b1Max-");
+}
+
+@media only screen and (max-width:$breakpoint2) {
+    @include grid-setup("b2Max-");
+}
+
+@media only screen and (max-width:$breakpoint3) {
+    @include grid-setup("b3Max-");
+}
+
+@media only screen and (max-width:$breakpoint4) {
+    @include grid-setup("b4Max-");
+}
+
+@media only screen and (max-width:$breakpoint5) {
+    @include grid-setup("b5Max-");
+}

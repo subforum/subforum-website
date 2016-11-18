@@ -1,0 +1,156 @@
+/* mixins */
+
+/**
+ * Create a fully formed type style (sizing and vertical rhythm) by passing in a
+ * single value, e.g.:
+ *
+   `@include font-size(10px);`
+ *
+ * Thanks to @redclov3r for the `line-height` Sass:
+ * twitter.com/redclov3r/status/250301539321798657
+ */
+@mixin font-size($font-size, $important: false, $line-height:true){
+    @if $important == important {
+      font-size: rem($font-size) !important;
+    } @else { 
+      font-size: rem($font-size);
+    }
+
+    line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+}
+
+@mixin calc($property, $expression) { 
+  #{$property}: -webkit-calc(#{$expression}); 
+  #{$property}: calc(#{$expression}); 
+} 
+
+/**
+ * simplify browser prefix insertion
+ */
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+      -ms-#{$name}: #{$argument};
+     -moz-#{$name}: #{$argument};
+       -o-#{$name}: #{$argument};
+          #{$name}: #{$argument};
+}
+
+
+/**
+ * Transform mixins
+ */
+ @mixin transform($property: none) {
+//  none | <transform-function>
+  @include vendor-prefix(transform, $property);
+}
+
+@mixin transform-origin($axes: 50%) {
+// x-axis - left | center | right  | length | %
+// y-axis - top  | center | bottom | length | %
+// z-axis -                          length
+  @include vendor-prefix(transform-origin, $axes);
+}
+
+@mixin transform-style ($style: flat) {
+  @include vendor-prefix(transform-style, $style);
+}
+
+@mixin gradient-vertical ($firstColor: #FFF, $secondColor: #DDD) {
+  background  : $firstColor; /* Fallback solid color for old browsers */
+  background  : linear-gradient(to bottom, $firstColor 0%, $secondColor 100%); /* W3C */
+  background  : -moz-linear-gradient(top, $firstColor 0%, $secondColor 100%); /* FF 3.6+ */
+  background  : -ms-linear-gradient(top, $firstColor 0%, $secondColor 100%); /* IE 10+ */
+  background  : -o-linear-gradient(top, $firstColor 0%, $secondColor 100%); /* Opera 11.10+ */
+  background  : -webkit-linear-gradient(top, $firstColor 0%,$secondColor 100%); /* Chrome 10+, Safari 5.1+ */
+  background  : -webkit-gradient(linear, left top, left bottom, color-stop(0%,$firstColor), color-stop(100%,$secondColor)); /* Chrome, Safari 4+ */
+  filter    : progid:DXImageTransform.Microsoft.gradient(startColorstr= '#{$firstColor}', endColorstr= '#{$secondColor}', GradientType=0); /* IE 6-9 */
+}
+
+@mixin gradient-horizontal ($firstColor: #FFF, $secondColor: #DDD) {
+  background  : $firstColor; /* Fallback solid color for old browsers */
+  background  : linear-gradient(to right, $firstColor 0%, $secondColor 100%); /* W3C */
+  background  : -moz-linear-gradient(left,  $firstColor 0%, $secondColor 100%); /* FF 3.6+ */
+  background  : -ms-linear-gradient(left, $firstColor 0%, $secondColor 100%); /* IE 10+ */
+  background  : -o-linear-gradient(left, $firstColor 0%, $secondColor 100%); /* Opera 11.10+ */
+  background  : -webkit-linear-gradient(left,  $firstColor 0%,$secondColor 100%); /* Chrome 10+, Safari 5.1+ */
+  background  : -webkit-gradient(linear, left top, right top, color-stop(0%,$firstColor), color-stop(100%,$secondColor)); /* Chrome, Safari 4+ */
+  filter    : progid:DXImageTransform.Microsoft.gradient(startColorstr= '#{$firstColor}', endColorstr= '#{$secondColor}', GradientType=1); /* IE 6-9 */
+}
+
+// Breakpoint mixins
+// This is a single max-width to handle rare cases where we do not want to use mobile first and directly target the smallest screen sizes. 
+@mixin rwd-b1Max () {
+  @media (max-width: em($breakpoint1)) { @content }
+}
+
+@mixin rwd-b2Max () {
+  @media (max-width: em($breakpoint2)) { @content }
+}
+
+@mixin rwd-b3Max () {
+  @media (max-width: em($breakpoint3)) { @content }
+}
+
+@mixin rwd-b4Max () {
+  @media (max-width: em($breakpoint4)) { @content }
+}
+
+@mixin rwd-b1 () {
+  @media (min-width: em($breakpoint1)) { @content }
+}
+
+@mixin rwd-b2 () {
+  @media (min-width: em($breakpoint2)) { @content }
+}
+
+@mixin rwd-b3 () {
+  @media (min-width: em($breakpoint3)) { @content }
+}
+
+@mixin rwd-b4 () {
+  @media (min-width: em($breakpoint4)) { @content }
+}
+
+@mixin rwd-b5 () {
+  @media (min-width: em($breakpoint5)) { @content }
+}
+
+@mixin rwd-b1tob2 () {
+  @media (min-width: em($breakpoint1)) and (max-width: em($breakpoint2)) { @content }
+}
+
+@mixin rwd-b1tob3 () {
+  @media (min-width: em($breakpoint1)) and (max-width: em($breakpoint3)) { @content }
+}
+
+@mixin rwd-b1tob4 () {
+  @media (min-width: em($breakpoint1)) and (max-width: em($breakpoint4)) { @content }
+}
+
+@mixin rwd-b1tob5 () {
+  @media (min-width: em($breakpoint1)) and (max-width: em($breakpoint5)) { @content }
+}
+
+@mixin rwd-b2tob3 () {
+  @media (min-width: em($breakpoint2)) and (max-width: em($breakpoint3)) { @content }
+}
+
+@mixin rwd-b2tob4 () {
+  @media (min-width: em($breakpoint2)) and (max-width: em($breakpoint4)) { @content }
+}
+
+@mixin rwd-b2tob5 () {
+  @media (min-width: em($breakpoint2)) and (max-width: em($breakpoint5)) { @content }
+}
+
+@mixin rwd-b3tob4 () {
+  @media (min-width: em($breakpoint3)) and (max-width: em($breakpoint4)) { @content }
+}
+
+@mixin rwd-b3tob5 () {
+  @media (min-width: em($breakpoint3)) and (max-width: em($breakpoint5)) { @content }
+}
+
+@mixin rwd-b4tob5 () {
+  @media (min-width: em($breakpoint4)) and (max-width: em($breakpoint5)) { @content }
+}

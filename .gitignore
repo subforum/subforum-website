@@ -29,6 +29,17 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+subforum/ui/node_modules
+
+# Virtualenv
+subforum/bin
+subforum/include
+subforum/lib
+
+# Static files
+subforum/ui/static/js
+subforum/ui/static/stylesheets
+subforum/ui/static/.DS_Store
 
 # Optional npm cache directory
 .npm
