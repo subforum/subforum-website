@@ -79,19 +79,11 @@ WSGI_APPLICATION = 'subforum.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'subforum',
-    #    'USER': 'subforum',
-    #    'PASSWORD': 'subforum',
-    #    'HOST': '127.0.0.1',
-    #    'PORT': '5432'
-    # }
     'default': {
        'ENGINE': 'django.db.backends.mysql',
        'NAME': 'subforum',
-       'USER': 'root',
-       'PASSWORD': '',
+       'USER': 'subforum',
+       'PASSWORD': 'RGFk7fFrVJwtvzMB',
        'HOST': '127.0.0.1',
        'PORT': '3306'
     }

@@ -19,6 +19,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+DATABASES = {
+    'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'subforum',
+       'USER': 'root',
+       'PASSWORD': '',
+       'HOST': '127.0.0.1',
+       'PORT': '3306'
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -27,4 +39,4 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join('subforum/ui/static'),)
 
-MEDIA_ROOT = '/Users/dande_000/projects/subforum_django/subforum/ui/static/'
+MEDIA_ROOT = '/Users/dande_000/projects/subforum-website/subforum/ui/static/'

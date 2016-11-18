@@ -12,9 +12,18 @@ redirect_stderr = true                                                ; Save std
 
 django_settings = \
 """
-DATABASES['default'] = ...
-SESSION_ENGINE = ...
-DEFAULT_FILE_STORAGE = ...
+DEBUG = False
+DATABASES['default'] = {
+   'ENGINE': 'django.db.backends.mysql',
+   'NAME': 'subforum',
+   'USER': 'subforum',
+   'PASSWORD': 'RGFk7fFrVJwtvzMB',
+   'HOST': '127.0.0.1',
+   'PORT': '3306'
+}
+ALLOWED_HOSTS = ['*.subforum.org']
+STATICFILES_DIRS = (os.path.join('/var/www/content.subforum.org/subforum-website/subforum/ui/static'),)
+MEDIA_ROOT = '/var/www/content.subforum.org/subforum-website/subforum/ui/static/'
 """
 
 class VirtualEnv(Node):
@@ -91,7 +100,7 @@ class DjangoDeployment(Node):
     def upload_django_settings(self):
         """ Upload the content of the variable 'local_settings' in the
         local_settings.py file. """
-        with self.host.open('~/git/django-project/local_settings.py') as f:
+        with self.host.open('/var/www/content.subforum.org/subforum-website/local_settings.py') as f:
             f.write(django_settings)
 
     def run_management_command(self, command):
@@ -115,3 +124,21 @@ class DjangoDeployment(Node):
         supervisord configuration file. """
         with self.host.open('/etc/supervisor/conf.d/django-project.conf') as f:
             f.write(supervisor_config)
+
+
+class remote_host(SSHHost):
+    address = '104.130.203.136' # Replace by your IP address
+    username = 'derose'         # Replace by your own username.
+    password = 'ctctp00p'       # Optional, but required for sudo operations
+    key_filename = None         # Optional, specify the location of the RSA private key
+
+class DjangoDeploymentOnHost(DjangoDeployment):
+    class Hosts:
+        host = remote_host
+
+    # Override a few properties of the parent.
+    virtual_env__location = '~/.virtualenvs/subforum/'
+    git__project_directory = '/var/www/content.subforum.org/subforum-website'
+
+if __name__ == '__main':
+    start(DjangoDeploymentOnHost)
