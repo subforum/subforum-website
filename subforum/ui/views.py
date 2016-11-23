@@ -2,12 +2,12 @@ import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
-from django.core import serializers
+# from django.core import serializers
 from subforum.cms.models import Topics, Projects, Articles, Topics_projects
 
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from subforum.ui.serializers import UserSerializer, GroupSerializer, ProjectSerializer, TopicSerializer, ArticleSerializer
+# from django.contrib.auth.models import User, Group
+# from rest_framework import viewsets
+# from subforum.ui.serializers import UserSerializer, GroupSerializer, ProjectSerializer, TopicSerializer, ArticleSerializer
 
 # Create your views here.
 def index(request, topic_id = None, project_id = None, article_id = None, update_id = None):
@@ -19,7 +19,7 @@ def index(request, topic_id = None, project_id = None, article_id = None, update
     # print(subforum_data)
 
     topics = Topics.objects.all().prefetch_related('projects')
-    topics_data = serializers.serialize('json', list(topics), fields=('id','name','description','create_date'))
+    # topics_data = serializers.serialize('json', list(topics), fields=('id','name','description','create_date'))
     
     subforum_data = []
     for topic in topics:
@@ -77,23 +77,23 @@ def index(request, topic_id = None, project_id = None, article_id = None, update
     return render(request, 'index.html', response_dict)
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
+# class UserViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all().order_by('-date_joined')
+#     serializer_class = UserSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+# class GroupViewSet(viewsets.ModelViewSet):
+#     queryset = Group.objects.all()
+#     serializer_class = GroupSerializer
 
-class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Projects.objects.all()
-    serializer_class = ProjectSerializer
+# class ProjectViewSet(viewsets.ModelViewSet):
+#     queryset = Projects.objects.all()
+#     serializer_class = ProjectSerializer
 
-class TopicViewSet(viewsets.ModelViewSet):
-    queryset = Topics.objects.all().prefetch_related('projects')
-    serializer_class = TopicSerializer
+# class TopicViewSet(viewsets.ModelViewSet):
+#     queryset = Topics.objects.all().prefetch_related('projects')
+#     serializer_class = TopicSerializer
 
-class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Articles.objects.all()
-    serializer_class = ArticleSerializer
+# class ArticleViewSet(viewsets.ModelViewSet):
+#     queryset = Articles.objects.all()
+#     serializer_class = ArticleSerializer

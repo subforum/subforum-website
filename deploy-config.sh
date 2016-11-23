@@ -40,16 +40,11 @@ function setup_code() {
 #     sudo supervisorctl stop all
 # }
 
-# function replace_code() {
-#     sudo rm -rf ${DEST_DIR}
-#     sudo cp -R ${SRC_DIR}/ ${DEST_DIR}
-#     sudo rm -rf  ${DEST_DIR}/.git ${DEST_DIR}/externals/m80common/.git ${DEST_DIR}/aux_files ${DEST_DIR}/build ${DEST_DIR}/z_user > /dev/null || exit 1
-
-#     sudo aws s3 sync ${CONFIG_S3_URL} ${BASE_DIR}/conf
-
-#     sudo chown -R crayon:crayon ${BASE_DIR}
-#     sudo -H -u crayon bash -c  "export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE}; sh ${DEST_DIR}/deploy/script/pre_restart.sh"
-# }
+function replace_code() {
+    sudo rm -rf ${DEST_DIR}
+    sudo cp -R ${SRC_DIR}/ ${DEST_DIR}
+    sudo rm -rf  ${DEST_DIR}/.git || exit 1
+}
 
 # function restart_server() {
 #     # Restart nginx

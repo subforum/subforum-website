@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    # 'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -136,7 +136,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-MEDIA_ROOT = '/var/www/subforum_django/subforum/ui/static/'
+MEDIA_ROOT = '/var/www/subforum-website/subforum/ui/static/'
 
 
 REST_FRAMEWORK = {
