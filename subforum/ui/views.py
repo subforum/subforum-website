@@ -2,12 +2,12 @@ import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
-# from django.core import serializers
-from subforum.cms.models import Topics, Projects, Articles, Topics_projects
+from django.core import serializers
+from subforum.cms.models import Topics, Projects, Articles, Contributors, Topics_projects, Contributors_articles
 
-# from django.contrib.auth.models import User, Group
-# from rest_framework import viewsets
-# from subforum.ui.serializers import UserSerializer, GroupSerializer, ProjectSerializer, TopicSerializer, ArticleSerializer
+from django.contrib.auth.models import User, Group
+from rest_framework import viewsets
+from subforum.ui.serializers import UserSerializer, GroupSerializer, ProjectSerializer, TopicSerializer, ArticleSerializer
 
 # Create your views here.
 def index(request, topic_id = None, project_id = None, article_id = None, update_id = None):
@@ -36,7 +36,7 @@ def index(request, topic_id = None, project_id = None, article_id = None, update
                 articles.append({
                     'id': article.id,    
                     'name': article.name,    
-                    'authors': article.authors,    
+                    'authors': [x.as_dict() for x in article.authors.all()],    
                     'content': article.content,    
                     'edit_date': article.edit_date.strftime('%b %d, %Y at %-I:%M%p'),
                     'project_name': project.name,
@@ -47,7 +47,7 @@ def index(request, topic_id = None, project_id = None, article_id = None, update
                     articles2.append({
                         'id': article.id,    
                         'name': article.name,    
-                        'authors': article.authors,    
+                        'authors': [x.as_dict() for x in article.authors.all()],    
                         'content': article.content,    
                         'edit_date': article.edit_date.strftime('%b %d, %Y at %-I:%M%p'),    
                     })
@@ -56,7 +56,7 @@ def index(request, topic_id = None, project_id = None, article_id = None, update
                 'id': project.id,    
                 'name': project.name,    
                 'description': project.description,    
-                'contributors': project.contributors,    
+                'leads': [x.as_dict() for x in project.leads.all()],
                 'edit_date': project.edit_date.strftime('%b %d, %Y at %-I:%M%p'),    
                 'articles': articles2,    
             })
@@ -73,27 +73,31 @@ def index(request, topic_id = None, project_id = None, article_id = None, update
         })
 
     response_dict['subforum_data'] = json.dumps(subforum_data)
+    
+
+    team = Contributors.objects.all()
+    team = [x.as_dict() for x in team]
+    response_dict['team'] = json.dumps(team)
 
     return render(request, 'index.html', response_dict)
 
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
 
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all().order_by('-date_joined')
-#     serializer_class = UserSerializer
 
+class GroupViewSet(viewsets.ModelViewSet):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
 
-# class GroupViewSet(viewsets.ModelViewSet):
-#     queryset = Group.objects.all()
-#     serializer_class = GroupSerializer
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Projects.objects.all()
+    serializer_class = ProjectSerializer
 
-# class ProjectViewSet(viewsets.ModelViewSet):
-#     queryset = Projects.objects.all()
-#     serializer_class = ProjectSerializer
+class TopicViewSet(viewsets.ModelViewSet):
+    queryset = Topics.objects.all().prefetch_related('projects')
+    serializer_class = TopicSerializer
 
-# class TopicViewSet(viewsets.ModelViewSet):
-#     queryset = Topics.objects.all().prefetch_related('projects')
-#     serializer_class = TopicSerializer
-
-# class ArticleViewSet(viewsets.ModelViewSet):
-#     queryset = Articles.objects.all()
-#     serializer_class = ArticleSerializer
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Articles.objects.all()
+    serializer_class = ArticleSerializer

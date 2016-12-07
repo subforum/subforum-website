@@ -1,5 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
+import { Link } from 'react-router'
 
 class Shell extends React.Component {
     constructor(props) {
@@ -14,10 +15,10 @@ class Shell extends React.Component {
 
                     <nav className="Shell-navigation">
                         <span className="Shell-navigation-item Shell-navigation-item--label">Research</span>
-                        <a href="/topics/" className="Shell-navigation-item">Topics</a>
+                        <Link to="/topics/" className="Shell-navigation-item">Topics</Link>
                         <a href="#" className="Shell-navigation-item">Projects</a>
                         <a href="/" className="Shell-navigation-item">Articles</a>
-                        <a href="#" className="Shell-navigation-item">Team</a>
+                        <Link to="/team/" className="Shell-navigation-item">Team</Link>
                     </nav>
                 </header>
 

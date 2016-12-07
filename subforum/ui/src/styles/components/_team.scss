@@ -1,0 +1,49 @@
+.Team-heading {
+    padding: rem($base-spacing-unit);
+    background-color: $brand-secondary;
+    border-bottom: rem($half-spacing-unit) solid $background-dark;
+    color: $white-font-color;
+}
+
+.Team-body {
+    padding: rem($base-spacing-unit);
+}
+
+.Team-title {
+    margin: 0;
+    font-size: rem($kilo-size);
+    font-weight: normal;
+    color: $white-font-color;
+
+    @include rwd-b2() {
+        font-size: rem($mega-size);
+    }
+}
+
+.Team-status {
+    margin-bottom: rem(0);
+    font-size: rem($milli-size);
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.Team-status-text {
+    font-size: rem($h2-size);
+
+    @include rwd-b2() {
+        font-size: rem($h1-size);
+    }
+}
+
+.Team-photo {
+    display: block;
+    max-width: 100%;
+    height: rem(150);
+    margin: 0 auto;
+    box-shadow: 0 0 rem(4) #333;
+    border-radius: rem($brand-round);
+}
+
+.Team-name {
+    margin-top: rem($half-spacing-unit);
+}

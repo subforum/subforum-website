@@ -23,7 +23,8 @@
     <script src="{% static 'js/app.js' %}"></script>
     <script>
         var initialState = {
-            subforum_data: {{subforum_data|safe}}
+            subforum_data: {{subforum_data|safe}},
+            team: {{team|safe}}
         };
         require('src/initialize');
     </script>

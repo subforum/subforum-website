@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Shell from './Shell.jsx';
+import Contributor from './Contributor.jsx';
 import Markdown from 'react-remarkable';
 
 class Article extends React.Component {
@@ -27,7 +28,11 @@ class Article extends React.Component {
 
                         <div className="Grid-item Grid-item--autoSize u-textRight">
                             <h2 className="Topic-status">Authors</h2>
-                            <span className="Topic-status-text">{article.authors}</span>
+                            <span className="Topic-status-text">
+                                {article.authors.map(function(author, index) {
+                                    return <Contributor key={author.email} contributor={author} index={index} length={article.authors.length} />;
+                                })}
+                            </span>
                         </div>
                     </div>
                 </header>

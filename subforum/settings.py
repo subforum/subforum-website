@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -39,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'rest_framework',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -127,7 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-# STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'public/static/')
+# STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'subforum/ui/static/')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join('subforum/ui/static'),)
 
@@ -136,7 +135,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-MEDIA_ROOT = '/var/www/subforum-website/subforum/ui/static/'
+MEDIA_ROOT = '/var/www/subforum-website/subforum/ui/static/uploads/'
 
 
 REST_FRAMEWORK = {

@@ -19,13 +19,10 @@ import Shell from './Shell.jsx';
 import ShowHome from '../containers/Home.jsx'
 import Home from './Home.jsx';
 import ShowTopicsList from '../containers/TopicsList.jsx'
-import TopicsList from './TopicsList.jsx';
 import ShowTopic from '../containers/Topic.jsx'
-import Topic from './Topic.jsx';
 import ShowProject from '../containers/Project.jsx'
-import Project from './Project.jsx';
 import ShowArticle from '../containers/Article.jsx'
-import Article from './Article.jsx';
+import ShowTeam from '../containers/Team.jsx'
 
 // Create saga
 const sagaMiddleware = createSagaMiddleware()
@@ -58,7 +55,7 @@ render(
                 <Route path="/topic/:id" component={ShowTopic} />
                 <Route path="/topic/:id/project/:id" component={ShowProject} />
                 <Route path="/topic/:id/project/:id/article/:id" component={ShowArticle} />
-                <Route path="/team/:id" component={ShowTopic} />
+                <Route path="/team/" component={ShowTeam} />
             </Route>
         </Router>
     </Provider>,

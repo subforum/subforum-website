@@ -5,7 +5,7 @@ BASE_DIR=/var/www/content.subforum.org
 DEST_DIR=${BASE_DIR}/code
 STATIC_DIR=${BASE_DIR}/static/
 UI_BUILD_DIR=${SRC_DIR}/subforum/ui
-BRANCH=${BRANCH="master"}
+BRANCH=${BRANCH="development"}
 
 NGINX_CONFIG='production'
 SUPERVISOR_CONF='supervisor-production.conf'

@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Shell from './Shell.jsx';
+import Contributor from './Contributor.jsx';
 import Markdown from 'react-remarkable';
 
 class Article extends React.Component {
@@ -11,7 +12,11 @@ class Article extends React.Component {
         return (
             <tr>
                 <td style={{minWidth:"18.75rem"}}><a href={link}>{article.name}</a></td>
-                <td>{article.authors}</td>
+                <td>
+                    {article.authors.map(function(author, index) {
+                        return <Contributor key={author.email} contributor={author} index={index} length={article.authors.length} />;
+                    })}
+                </td>
                 <td>{article.edit_date}</td>
             </tr>
         );

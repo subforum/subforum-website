@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Shell from './Shell.jsx';
+import Contributor from './Contributor.jsx';
 import Markdown from 'react-remarkable';
 
 class Project extends React.Component {
@@ -11,7 +12,11 @@ class Project extends React.Component {
         return (
             <tr>
                 <td style={{minWidth:"18.75rem"}}><a href={link}>{project.name}</a></td>
-                <td>{project.contributors}</td>
+                <td>
+                    {project.leads.map(function(lead, index) {
+                        return <Contributor key={lead.email} contributor={lead} index={index} length={project.leads.length} />;
+                    })}
+                </td>
                 <td className="u-textRight">{project.edit_date}</td>
             </tr>
         );
@@ -28,7 +33,11 @@ class Article extends React.Component {
             <tr>
                 <td style={{minWidth:"18.75rem"}}><a href={articleLink}>{article.name}</a></td>
                 <td><a href={projectLink}>{article.project_name}</a></td>
-                <td>{article.authors}</td>
+                <td>
+                    {article.authors.map(function(author, index) {
+                        return <Contributor key={author.email} contributor={author} index={index} length={article.authors.length} />;
+                    })}
+                </td>
                 <td className="u-textRight">{article.edit_date}</td>
             </tr>
         );
@@ -51,6 +60,7 @@ class Topic extends React.Component {
             linkify:      true
         };
         const columnWidth = 200;
+        console.log(topic);
 
         let imgSrc = '';
         if(topic.image) {
